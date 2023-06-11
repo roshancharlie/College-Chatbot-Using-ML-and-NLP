@@ -24,7 +24,7 @@ You can run the [Chatbot.ipynb](https://github.com/roshancharlie/College-Chatbot
 ### Or
 You can run Chatbot Through Terminal
 ```
-python Chatbot.py
+python app.py
 ```
 
 
