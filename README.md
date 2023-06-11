@@ -1,16 +1,10 @@
-# College Chatbot Using ML Algorithm and NLP Toolkit
+# College Chatbot Using ML Algorithm and NLP Toolkit 
 
-## Aim of a Chatbot
-The aim of a chatbot is to provide automated assistance to users in a conversational manner. A chatbot can be designed to perform various tasks such as answering questions, providing recommendations, scheduling appointments, making reservations, and more. The primary goal of a chatbot is to improve the user experience by providing quick and accurate responses to user inquiries. Additionally, a chatbot can help businesses save time and resources by automating repetitive tasks and providing 24/7 customer support. Ultimately, the aim of a chatbot is to provide a seamless and efficient communication channel between users and businesses.
+The College Chatbot is a Python-based chatbot that utilizes machine learning algorithms and natural language processing (NLP) techniques to provide automated assistance to users with college-related inquiries. The chatbot aims to improve the user experience by delivering quick and accurate responses to their questions.
 
 
 ## Methodology
-
-This is a Python code for creating a chatbot using Natural Language Processing (NLP) techniques. The code reads in a JSON file containing various intents for the chatbot and their corresponding responses. It preprocesses the data by tokenizing and removing stop words from the text examples, and then converts the text data into numerical form using the TfidfVectorizer from the scikit-learn library.
-
-The code then trains and evaluates multiple machine learning models using GridSearchCV to find the best performing model based on accuracy. The selected model is then used to predict the intent of user inputs and generate responses based on the corresponding intent.
-
-Finally, the best model, vectorizer, and intents data are saved using pickle and json, respectively, for future use. A chatbot is created by running a while loop that takes user inputs and returns chatbot responses until the user inputs the word "quit".
+The chatbot is developed using a combination of natural language processing techniques and machine learning algorithms. The methodology involves data preparation, model training, and chatbot response generation. The data is preprocessed to remove noise and increase training examples using synonym replacement. Multiple classification models are trained and evaluated to find the best-performing one. The trained model is then used to predict the intent of user input, and a random response is selected from the corresponding intent's responses. The chatbot is devoloped as a web application using Flask, allowing users to interact with it in real-time but yet to be deployed.
 
 ## Motivation
 The motivation behind this project was to create a simple chatbot using my newly acquired knowledge of Natural Language Processing (NLP) and Python programming. As one of my first projects in this field, I wanted to put my skills to the test and see what I could create.
@@ -24,6 +18,12 @@ You can run the [Chatbot.ipynb](https://github.com/roshancharlie/College-Chatbot
 ### Or
 You can run Chatbot Through Terminal
 ```
+git clone https://github.com/roshancharlie/College-Chatbot-Using-ML-and-NLP.git
+
+cd College-Chatbot-Using-ML-and-NLP
+
+pip install -r requirements.txt
+
 python app.py
 ```
 
