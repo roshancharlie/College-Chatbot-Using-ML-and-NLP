@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>College Chatbot</h1>
+        <div id="chat-container">
+            <div class="box">
+                <div class="message chatbot-message">
+                    <div class="message-content">
+                        <div class="message-text">Hi! I'm a chatbot. How can I assist you today?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form id="user-input-form">
+            <div class="box">
+                <input type="text" id="user-input" placeholder="Type your message..." autofocus autocomplete="off">
+                <button type="submit" class="send-button">Send</button>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('form').on('submit', function(event) {
+                event.preventDefault();
+                var user_input = $('#user-input').val();
+                if (user_input.trim() !== '') {
+                    $('#user-input').val('');
+                    appendUserMessage(user_input);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/chat',
+                        data: { user_input: user_input },
+                        success: function(response) {
+                            appendChatbotMessage(response);
+                        }
+                    });
+                }
+            });
+
+            function appendUserMessage(message) {
+                var messageElement = $('<div class="message user-message"></div>').text(message);
+                $('#chat-container').append(messageElement);
+                scrollChatToBottom();
+            }
+
+            function appendChatbotMessage(message) {
+                var messageElement = $('<div class="message chatbot-message"></div>').text(message);
+                $('#chat-container').append(messageElement);
+                scrollChatToBottom();
+            }
+
+            function scrollChatToBottom() {
+                $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+            }
+        });
+    </script>
+</body>
+</html>
